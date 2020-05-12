@@ -74,7 +74,6 @@ public protocol FSPagerViewDelegate: NSObjectProtocol {
     
 }
 
-@IBDesignable
 open class FSPagerView: UIView,UICollectionViewDataSource,UICollectionViewDelegate {
     
     // MARK: - Public properties
@@ -94,7 +93,6 @@ open class FSPagerView: UIView,UICollectionViewDataSource,UICollectionViewDelega
     }
     
     /// The time interval of automatic sliding. 0 means disabling automatic sliding. Default is 0.
-    @IBInspectable
     open var automaticSlidingInterval: CGFloat = 0.0 {
         didSet {
             self.cancelTimer()
@@ -105,7 +103,6 @@ open class FSPagerView: UIView,UICollectionViewDataSource,UICollectionViewDelega
     }
     
     /// The spacing to use between items in the pager view. Default is 0.
-    @IBInspectable
     open var interitemSpacing: CGFloat = 0 {
         didSet {
             self.collectionViewLayout.forceInvalidate()
@@ -113,7 +110,6 @@ open class FSPagerView: UIView,UICollectionViewDataSource,UICollectionViewDelega
     }
     
     /// The item size of the pager view. When the value of this property is FSPagerView.automaticSize, the items fill the entire visible area of the pager view. Default is FSPagerView.automaticSize.
-    @IBInspectable
     open var itemSize: CGSize = automaticSize {
         didSet {
             self.collectionViewLayout.forceInvalidate()
@@ -121,7 +117,6 @@ open class FSPagerView: UIView,UICollectionViewDataSource,UICollectionViewDelega
     }
     
     /// A Boolean value indicates that whether the pager view has infinite items. Default is false.
-    @IBInspectable
     open var isInfinite: Bool = false {
         didSet {
             self.collectionViewLayout.needsReprepare = true
@@ -130,39 +125,33 @@ open class FSPagerView: UIView,UICollectionViewDataSource,UICollectionViewDelega
     }
     
     /// An unsigned integer value that determines the deceleration distance of the pager view, which indicates the number of passing items during the deceleration. When the value of this property is FSPagerView.automaticDistance, the actual 'distance' is automatically calculated according to the scrolling speed of the pager view. Default is 1.
-    @IBInspectable
     open var decelerationDistance: UInt = 1
     
     /// A Boolean value that determines whether scrolling is enabled.
-    @IBInspectable
     open var isScrollEnabled: Bool {
         set { self.collectionView.isScrollEnabled = newValue }
         get { return self.collectionView.isScrollEnabled }
     }
     
     /// A Boolean value that controls whether the pager view bounces past the edge of content and back again.
-    @IBInspectable
     open var bounces: Bool {
         set { self.collectionView.bounces = newValue }
         get { return self.collectionView.bounces }
     }
     
     /// A Boolean value that determines whether bouncing always occurs when horizontal scrolling reaches the end of the content view.
-    @IBInspectable
     open var alwaysBounceHorizontal: Bool {
         set { self.collectionView.alwaysBounceHorizontal = newValue }
         get { return self.collectionView.alwaysBounceHorizontal }
     }
     
     /// A Boolean value that determines whether bouncing always occurs when vertical scrolling reaches the end of the content view.
-    @IBInspectable
     open var alwaysBounceVertical: Bool {
         set { self.collectionView.alwaysBounceVertical = newValue }
         get { return self.collectionView.alwaysBounceVertical }
     }
     
     /// A Boolean value that controls whether the infinite loop is removed if there is only one item. Default is false.
-    @IBInspectable
     open var removesInfiniteLoopForSingleItem: Bool = false {
         didSet {
             self.reloadData()
@@ -170,7 +159,6 @@ open class FSPagerView: UIView,UICollectionViewDataSource,UICollectionViewDelega
     }
     
     /// The background view of the pager view.
-    @IBInspectable
     open var backgroundView: UIView? {
         didSet {
             if let backgroundView = self.backgroundView {

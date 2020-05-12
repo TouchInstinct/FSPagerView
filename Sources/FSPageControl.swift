@@ -8,11 +8,9 @@
 
 import UIKit
 
-@IBDesignable
 open class FSPageControl: UIControl {
     
     /// The number of page indicators of the page control. Default is 0.
-    @IBInspectable
     open var numberOfPages: Int = 0 {
         didSet {
             self.setNeedsCreateIndicators()
@@ -20,7 +18,6 @@ open class FSPageControl: UIControl {
     }
     
     /// The current page, highlighted by the page control. Default is 0.
-    @IBInspectable
     open var currentPage: Int = 0 {
         didSet {
             self.setNeedsUpdateIndicators()
@@ -28,7 +25,6 @@ open class FSPageControl: UIControl {
     }
     
     /// The spacing to use of page indicators in the page control.
-    @IBInspectable
     open var itemSpacing: CGFloat = 6 {
         didSet {
             self.setNeedsUpdateIndicators()
@@ -36,7 +32,6 @@ open class FSPageControl: UIControl {
     }
     
     /// The spacing to use between page indicators in the page control.
-    @IBInspectable
     open var interitemSpacing: CGFloat = 6 {
         didSet {
             self.setNeedsLayout()
@@ -44,7 +39,6 @@ open class FSPageControl: UIControl {
     }
     
     /// The distance that the page indicators is inset from the enclosing page control.
-    @IBInspectable
     open var contentInsets: UIEdgeInsets = .zero {
         didSet {
             self.setNeedsLayout()
@@ -59,7 +53,6 @@ open class FSPageControl: UIControl {
     }
     
     /// Hide the indicator if there is only one page. default is NO
-    @IBInspectable
     open var hidesForSinglePage: Bool = false {
         didSet {
             self.setNeedsUpdateIndicators()
