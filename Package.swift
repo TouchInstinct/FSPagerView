@@ -1,3 +1,4 @@
+
 //
 //  Package.swift
 //  FSPagerView
@@ -24,11 +25,17 @@
 //  THE SOFTWARE.
 
 
-// swift-tools-version:5.0
 import PackageDescription
 
 let package = Package(
     name: "FSPagerView",
-    dependencies : [],
-    exclude: []
+    platforms: [
+        .iOS(.v9)
+    ],
+    products: [
+        .library(name: "FSPagerView", targets: ["FSPagerView"]),
+    ],
+    targets: [
+        .target(name: "FSPagerView", path: "Sources", exclude: ["FSPagerViewObjcCompat.h", "FSPagerViewObjcCompat.m"]),
+    ]
 )
